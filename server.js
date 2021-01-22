@@ -4,6 +4,8 @@ const app = express()
 const server =  require('http').Server(app)
 const io =  require('socket.io')(server)
 const { v4: uuidV4 } = require('uuid')
+const port = 3000;
+
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
@@ -22,4 +24,4 @@ io.on('connection', socket => {
 
     })
 })
-server.listen(3000)
+app.listen(process.env.PORT || port, () => console.log(`Example app listening at http://localhost:${port}`));
