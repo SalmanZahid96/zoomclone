@@ -1,10 +1,12 @@
 const { Socket } = require('dgram')
 const express = require('express')
 const app = express()
-var server = http.createServer(app);
-var io = require('socket.io')(server);
-const { v4: uuidV4 } = require('uuid')
 const port = 3000;
+app.listen(process.env.PORT || port, () => console.log(`Example app listening at http://localhost:${port}`));
+const server = require('express')().listen(port,cb);
+const io = require('socket.io')(server);
+const { v4: uuidV4 } = require('uuid')
+
 
 
 app.set('view engine', 'ejs')
@@ -24,4 +26,3 @@ io.on('connection', socket => {
 
     })
 })
-app.listen(process.env.PORT || port, () => console.log(`Example app listening at http://localhost:${port}`));
