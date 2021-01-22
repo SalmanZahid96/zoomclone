@@ -1,8 +1,8 @@
 const { Socket } = require('dgram')
 const express = require('express')
 const app = express()
-const server =  require('http').Server(app)
-const io =  require('socket.io')(server)
+var server = http.createServer(app);
+var io = require('socket.io')(server);
 const { v4: uuidV4 } = require('uuid')
 const port = 3000;
 
